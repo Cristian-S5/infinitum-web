@@ -74,8 +74,8 @@
   font-size: 0.88rem;
   font-weight: 700;
   color: var(--clr-muted);
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   cursor: pointer;
   transition: var(--transition);
   letter-spacing: 0.03em;
@@ -221,7 +221,7 @@
   align-items: center;
   gap: 10px;
   font-size: 0.87rem;
-  color: var(--clr-muted);
+  color: var(--clr-text);
 }
 .feat-dot {
   width: 6px; height: 6px;
