@@ -353,7 +353,6 @@
 }
 .contact-map iframe {
   display: block;
-  filter: invert(90%) hue-rotate(180deg) saturate(0.8) brightness(0.85);
   border-radius: var(--radius-md);
 }
 .map-overlay-link {
@@ -363,7 +362,7 @@
   cursor: pointer;
 }
 .map-overlay-link:hover + iframe {
-  filter: invert(90%) hue-rotate(180deg) saturate(1) brightness(0.95);
+  filter: none;
 }
 
 /* Form */
