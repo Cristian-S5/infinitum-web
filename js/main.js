@@ -80,33 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
   reveals.forEach(el => revealObserver.observe(el));
 
 
-  /* =============================================
-     STAT COUNTER (hero)
-  ============================================= */
-  const statNums = document.querySelectorAll('.stat-num');
 
-  if (statNums.length > 0) {
-    const counterObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const el     = entry.target;
-          const target = parseInt(el.dataset.target, 10);
-          const step   = Math.ceil(target / 60);
-          let current  = 0;
-
-          const tick = () => {
-            current = Math.min(current + step, target);
-            el.textContent = current;
-            if (current < target) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-          counterObserver.unobserve(el);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    statNums.forEach(n => counterObserver.observe(n));
-  }
 
 
   /* =============================================
