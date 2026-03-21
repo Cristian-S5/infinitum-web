@@ -118,15 +118,18 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =============================================
      CONTACT FORM
   ============================================= */
-  window.handleForm = (e) => {
-    e.preventDefault();
-    const successMsg = document.getElementById('form-success');
-    if (successMsg) {
-      successMsg.classList.add('show');
-      e.target.reset();
-      setTimeout(() => successMsg.classList.remove('show'), 5000);
-    }
-  };
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const successMsg = document.getElementById('form-success');
+      if (successMsg) {
+        successMsg.classList.add('show');
+        e.target.reset();
+        setTimeout(() => successMsg.classList.remove('show'), 5000);
+      }
+    });
+  }
 
 
   /* =============================================
