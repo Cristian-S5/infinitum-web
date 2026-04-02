@@ -397,8 +397,8 @@
 /* Mobile Content Inner Icons/UI */
 .smw-nav { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
 .smw-logo { width: 40px; height: 6px; background: linear-gradient(90deg, var(--clr-gold-lt), var(--clr-teal)); border-radius: 3px; }
-.smw-hamburger { display: flex; flex-direction: column; gap: 3px; }
-.smw-hamburger span { width: 14px; height: 2px; background: rgba(255,255,255,0.4); border-radius: 1px; }
+.smw-hamburger { display: flex; flex-direction: column; gap: 2px; align-items: center; }
+.smw-hamburger span { width: 3px; height: 3px; background: rgba(255,255,255,0.4); border-radius: 50%; transition: var(--transition); }
 
 .smw-hero {
   background: linear-gradient(135deg, #111827, #1a2235);

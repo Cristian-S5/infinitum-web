@@ -52,7 +52,7 @@
   position: relative;
   z-index: 2;
   padding: 120px 0 80px;
-  max-width: 950px;
+  max-width: 1100px;
 }
 
 .hero-badge {
@@ -65,7 +65,7 @@
   border: 1px solid rgba(122, 203, 234, 0.25);
   font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.12em;
   color: var(--clr-gold-lt);
   text-transform: uppercase;
   margin-bottom: 28px;
@@ -88,6 +88,7 @@
   line-height: 1.1;
   color: var(--clr-text);
   margin-bottom: 24px;
+  letter-spacing: -0.015em;
 }
 .hero-title em {
   font-style: italic;
@@ -102,7 +103,8 @@
   color: var(--clr-muted);
   line-height: 1.75;
   margin-bottom: 40px;
-  max-width: 750px;
+  max-width: 850px;
+  letter-spacing: 0.02em;
 }
 
 .hero-cta {

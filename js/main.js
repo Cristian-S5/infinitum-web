@@ -21,12 +21,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
     mobileNav.classList.toggle('open');
   });
 
   // Close mobile nav on link click
   mobileNav?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => mobileNav.classList.remove('open'));
+    link.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburger?.classList.remove('active');
+    });
   });
 
 
@@ -141,6 +145,41 @@ document.addEventListener('DOMContentLoaded', () => {
       const y = window.scrollY;
       heroBg.style.transform = `translateY(${y * 0.3}px)`;
     }, { passive: true });
+  }
+
+  /* =============================================
+     CUSTOM CURSOR (Desktop)
+  ============================================= */
+  if (window.innerWidth > 900) {
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    const animateCursor = () => {
+      let dx = mouseX - cursorX;
+      let dy = mouseY - cursorY;
+      
+      cursorX += dx * 0.15;
+      cursorY += dy * 0.15;
+      
+      cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+      requestAnimationFrame(animateCursor);
+    };
+    animateCursor();
+
+    const hoverElements = document.querySelectorAll('a, button, .btn, .card, .service-preview-card, .stab, .ci-item, .nav-logo');
+    hoverElements.forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
   }
 
 });
