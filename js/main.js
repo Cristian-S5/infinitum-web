@@ -167,8 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
       let dx = mouseX - cursorX;
       let dy = mouseY - cursorY;
       
-      cursorX += dx * 0.15;
-      cursorY += dy * 0.15;
+      cursorX += dx * 0.5;
+      cursorY += dy * 0.5;
       
       cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
       requestAnimationFrame(animateCursor);

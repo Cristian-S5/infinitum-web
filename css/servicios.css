@@ -94,7 +94,20 @@
   display: flex;
   align-items: flex-start;
   gap: 24px;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
+}
+.service-header .section-label,
+.pro-header .section-label {
+  display: block;
+  margin-top: 4px;
+}
+.service-header .section-title,
+.pro-header .section-title {
+  margin-bottom: 4px;
+}
+.service-header .section-label::before,
+.pro-header .section-label::before {
+  display: none; /* Quitamos la línea para que parezca más un subtítulo */
 }
 .service-category-icon {
   width: 64px; height: 64px;
