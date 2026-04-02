@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (tabs.length > 0) {
     const updateActiveTabs = () => {
-      const sections = ['marketing','disenos','ia','web','paquete-pro'];
+      const sections = ['paquete-pro', 'marketing', 'web', 'ia', 'disenos'];
       const scrollY  = window.scrollY + 120;
 
       let current = sections[0];

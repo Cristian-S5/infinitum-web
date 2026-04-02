@@ -343,7 +343,7 @@
 .mw-sub--short { width: 55%; }
 .mw-cta-row { display: flex; gap: 8px; margin-top: 14px; }
 .mw-cta { width: 70px; height: 20px; border-radius: 10px; background: var(--clr-gold); }
-.mw-cta--ghost { background: transparent; border: 1px solid rgba(201,168,76,0.4); }
+.mw-cta--ghost { background: transparent; border: 1px solid rgba(122, 203, 234, 0.4); }
 .mw-cards-row { display: flex; gap: 10px; }
 .mw-card { flex: 1; height: 50px; border-radius: 6px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07); }
 

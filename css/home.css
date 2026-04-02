@@ -220,7 +220,7 @@
 .feature-icon {
   width: 28px; height: 28px;
   border-radius: 50%;
-  background: rgba(201,168,76,0.12);
+  background: rgba(122, 203, 234, 0.12);
   display: grid; place-items: center;
   flex-shrink: 0;
 }
@@ -264,7 +264,7 @@
 .service-preview-card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-card);
-  border-color: rgba(201,168,76,0.3);
+  border-color: rgba(122, 203, 234, 0.3);
 }
 .service-preview-card:hover::after { transform: scaleX(1); }
 
