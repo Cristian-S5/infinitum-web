@@ -489,6 +489,8 @@
   .service-tabs { gap: 6px; }
   .stab { padding: 8px 16px; font-size: 0.82rem; }
   .ia-card { padding: 28px 22px; }
+  .mockup-frame { transform: scale(0.75); transform-origin: top center; }
+  .mockup-mobile { width: 100px; height: 210px; bottom: -35px; right: -15px; }
 }
 /* ===== PAQUETE PRO ===== */
 .pro-package-card {
