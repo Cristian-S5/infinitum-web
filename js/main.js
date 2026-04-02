@@ -309,16 +309,21 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="modal-article-text">${post.body}</div>
       `;
 
+      // Scroll to top before opening (ensure content is at top when modal appears)
+      const modalContent = document.querySelector('.blog-modal-content');
+      if (modalContent) {
+        modalContent.scrollTop = 0;
+      }
+      
       blogModal.classList.add('active');
       document.body.style.overflow = 'hidden';
       
-      // Scroll to top of modal content
+      // Ensure scroll is at top after modal animation completes
       setTimeout(() => {
-        const modalContent = document.querySelector('.blog-modal-content');
         if (modalContent) {
           modalContent.scrollTop = 0;
         }
-      }, 50);
+      }, 100);
 
       // Share button functionality
       const shareBtn = document.querySelector('.modal-share-btn');
