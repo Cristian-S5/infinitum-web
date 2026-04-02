@@ -234,16 +234,21 @@
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 50%;
-  color: #fff;
-  font-size: 24px;
+  color: var(--clr-gold-lt);
   display: grid; place-items: center;
   cursor: pointer;
   z-index: 11;
   transition: all var(--transition);
   align-self: flex-end;
   margin: 20px 20px 0 0;
+  padding: 0;
 }
-.modal-close:hover { background: rgba(255,255,255,0.1); transform: rotate(90deg); }
+.modal-close svg { width: 20px; height: 20px; stroke: var(--clr-gold-lt); }
+.modal-close:hover {
+  background: rgba(122, 203, 234, 0.12);
+  border-color: rgba(122, 203, 234, 0.3);
+  transform: translateX(-4px);
+}
 
 .modal-header {
   padding: 0 50px;
@@ -419,8 +424,8 @@
     margin: 10px 10px 0 0;
     width: 36px;
     height: 36px;
-    font-size: 20px;
   }
+  .modal-close svg { width: 18px; height: 18px; }
 
   .modal-share-btn {
     margin-bottom: 16px;
