@@ -275,13 +275,7 @@ a { color: inherit; text-decoration: none; }
   color: var(--clr-gold);
   margin-bottom: 16px;
 }
-.section-label::before {
-  content: '';
-  display: block;
-  width: 24px; height: 2px;
-  background: var(--clr-gold);
-  border-radius: 1px;
-}
+
 
 .section-title {
   font-family: var(--ff-head);
