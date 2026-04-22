@@ -230,37 +230,10 @@
 .blog-modal.active .blog-modal-content {
   transform: translateY(0);
 }
-.modal-close {
-  position: sticky;
-  top: 15px;
-  width: 60px; height: 60px;
-  background: rgba(7, 9, 15, 0.6);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(122, 203, 234, 0.2);
-  border-radius: 50%;
-  color: var(--clr-gold-lt);
-  display: grid; place-items: center;
-  cursor: pointer;
-  z-index: 11;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  align-self: flex-end;
-  margin: 15px 15px 0 0;
-  padding: 0;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-.modal-close svg { width: 28px; height: 28px; stroke: var(--clr-gold-lt); }
-.modal-close:hover {
-  background: rgba(122, 203, 234, 0.15);
-  border-color: var(--clr-gold);
-  transform: scale(1.1) rotate(90deg);
-  box-shadow: 0 0 25px rgba(122, 203, 234, 0.4);
-}
-.modal-close:active {
-  transform: scale(0.9) rotate(90deg);
-}
+
 
 .modal-header {
-  padding: 0 50px;
+  padding: 50px 50px 0;
   margin-bottom: 8px;
 }
 
@@ -421,7 +394,7 @@
   }
 
   .modal-header {
-    padding: 0 20px;
+    padding: 40px 20px 0;
     margin-bottom: 8px;
   }
 
@@ -429,12 +402,7 @@
     padding: 20px 20px 40px;
   }
 
-  .modal-close {
-    margin: 10px 10px 0 0;
-    width: 48px;
-    height: 48px;
-  }
-  .modal-close svg { width: 22px; height: 22px; }
+
 
   .modal-share-btn {
     margin-bottom: 16px;

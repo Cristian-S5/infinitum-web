@@ -295,7 +295,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // Set header content with tag, title and share button
       const modalHeader = document.getElementById('modal-header');
       modalHeader.innerHTML = `
-        <span class="modal-article-tag">${post.tag}</span>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%;">
+          <span class="modal-article-tag">${post.tag}</span>
+          <button id="modal-close-header" style="background: none; border: none; color: var(--clr-muted); font-size: 1.5rem; cursor: pointer; padding: 0; line-height: 1; transition: color 0.3s;">✕</button>
+        </div>
         <h2 class="modal-article-title">${post.title}</h2>
         <button class="modal-share-btn" data-post-id="${postId}" aria-label="Compartir artículo">
           <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
@@ -303,10 +306,13 @@ document.addEventListener('DOMContentLoaded', () => {
         </button>
       `;
 
-      // Set body content with image placeholder and text
+      // Set body content with image placeholder, text and a close button
       modalBody.innerHTML = `
         <div class="modal-article-placeholder"></div>
         <div class="modal-article-text">${post.body}</div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" id="modal-close-footer" style="margin-top: 30px;">Cerrar Artículo</button>
+        </div>
       `;
 
       // Scroll to top before opening (ensure content is at top when modal appears)
@@ -324,6 +330,17 @@ document.addEventListener('DOMContentLoaded', () => {
           modalContent.scrollTop = 0;
         }
       }, 100);
+
+      // Close buttons
+      const footerClose = document.getElementById('modal-close-footer');
+      const headerClose = document.getElementById('modal-close-header');
+      
+      if (footerClose) footerClose.addEventListener('click', closeModal);
+      if (headerClose) {
+        headerClose.addEventListener('click', closeModal);
+        headerClose.addEventListener('mouseenter', () => headerClose.style.color = 'var(--clr-gold-lt)');
+        headerClose.addEventListener('mouseleave', () => headerClose.style.color = 'var(--clr-muted)');
+      }
 
       // Share button functionality
       const shareBtn = document.querySelector('.modal-share-btn');
@@ -373,7 +390,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Close handlers
-    modalClose?.addEventListener('click', closeModal);
     modalOverlay?.addEventListener('click', closeModal);
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && blogModal.classList.contains('active')) {
