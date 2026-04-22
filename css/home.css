@@ -8,6 +8,7 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
@@ -51,7 +52,7 @@
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 120px 0 80px;
+  padding: 0;
   max-width: 1100px;
 }
 
@@ -111,7 +112,6 @@
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 60px;
 }
 
 
@@ -153,10 +153,11 @@
   align-items: center;
 }
 
-.about-visual { position: relative; }
+.about-visual { position: relative; overflow: visible; }
 .about-image-wrap {
   position: relative;
   padding: 24px;
+  overflow: visible;
 }
 .about-glow {
   position: absolute;
@@ -169,22 +170,77 @@
 }
 .about-image-inner {
   position: relative;
-  border: 1px solid var(--clr-border);
-  border-radius: var(--radius-lg);
+  border: none;
+  border-radius: 0;
   padding: 40px 32px;
-  background: var(--clr-surface);
+  background: transparent;
   display: flex;
   justify-content: center;
-  overflow: hidden;
+  align-items: center;
+  overflow: visible;
 }
-.about-image-inner::before {
-  content: '';
+
+/* Logo showcase */
+.about-logo-showcase {
+  min-height: 600px;
+  background: transparent;
+}
+
+.about-logo-img {
+  position: relative;
+  z-index: 2;
+  width: 630px;
+  height: auto;
+  filter: drop-shadow(0 0 50px rgba(122, 203, 234, 0.25));
+}
+
+/* Animated gradient orbs */
+.about-gradient-orb {
   position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--clr-gold), var(--clr-teal), transparent);
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(122, 203, 234, 0.4) 0%, rgba(122, 203, 234, 0.1) 50%, transparent 80%);
+  filter: blur(60px);
+  z-index: 1;
+  animation: orbFloat1 10s ease-in-out infinite;
 }
-.about-svg { width: 100%; max-width: 320px; }
+.about-gradient-orb.orb-2 {
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(62, 198, 153, 0.4) 0%, rgba(62, 198, 153, 0.1) 50%, transparent 80%);
+  filter: blur(50px);
+  animation: orbFloat2 12s ease-in-out infinite;
+}
+.about-gradient-orb.orb-3 {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(169, 222, 255, 0.3) 0%, rgba(169, 222, 255, 0.05) 50%, transparent 80%);
+  filter: blur(45px);
+  animation: orbFloat3 15s ease-in-out infinite;
+}
+
+@keyframes orbFloat1 {
+  0%   { transform: translate(-60px, -40px) scale(1); }
+  25%  { transform: translate(50px, -60px) scale(1.15); }
+  50%  { transform: translate(70px, 40px) scale(0.9); }
+  75%  { transform: translate(-40px, 60px) scale(1.1); }
+  100% { transform: translate(-60px, -40px) scale(1); }
+}
+@keyframes orbFloat2 {
+  0%   { transform: translate(50px, 50px) scale(1); }
+  25%  { transform: translate(-60px, 30px) scale(1.2); }
+  50%  { transform: translate(-50px, -50px) scale(0.85); }
+  75%  { transform: translate(40px, -40px) scale(1.1); }
+  100% { transform: translate(50px, 50px) scale(1); }
+}
+@keyframes orbFloat3 {
+  0%   { transform: translate(0px, -60px) scale(1.1); }
+  25%  { transform: translate(60px, 20px) scale(0.9); }
+  50%  { transform: translate(-30px, 60px) scale(1.2); }
+  75%  { transform: translate(-60px, -20px) scale(0.95); }
+  100% { transform: translate(0px, -60px) scale(1.1); }
+}
 
 .about-badge-float {
   position: absolute;
@@ -202,6 +258,12 @@
   box-shadow: var(--shadow-card);
 }
 .about-badge-float svg { stroke: var(--clr-teal); }
+.about-badge-float.top-left {
+  bottom: auto; right: auto;
+  top: 24px; left: -12px;
+  color: var(--clr-gold-lt);
+}
+.about-badge-float.top-left svg { stroke: var(--clr-gold-lt); }
 
 .about-features {
   display: grid;
@@ -500,6 +562,9 @@
   .why-grid { grid-template-columns: 1fr; }
 
   .about-badge-float { right: 0; }
+  .about-badge-float.top-left { left: 0; }
+  .about-logo-img { width: 100%; max-width: 450px; }
+  .about-logo-showcase { min-height: 400px; }
 }
 @media (max-width: 600px) {
   .services-preview-grid { grid-template-columns: 1fr; }
@@ -508,6 +573,8 @@
   .form-row { grid-template-columns: 1fr; }
   .about-features { grid-template-columns: 1fr; }
   .hide-sm { display: none; }
+  .about-logo-img { max-width: 280px; }
+  .about-logo-showcase { min-height: 320px; }
 }
 /* ===== PAQUETE PRO CALLOUT (Home) ===== */
 .pro-preview-callout {
