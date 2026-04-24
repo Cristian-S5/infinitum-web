@@ -125,6 +125,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.querySelector('.contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
+      // Si estamos abriendo el archivo localmente (file://), el AJAX falla por seguridad (CORS).
+      // Al hacer return temprano, permitimos que el formulario se envíe de la forma tradicional.
+      if (window.location.protocol === 'file:') {
+        return; 
+      }
+
       e.preventDefault();
       
       const submitBtn = contactForm.querySelector('button[type="submit"]');
