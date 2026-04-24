@@ -132,11 +132,21 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.innerHTML = 'Enviando...';
       submitBtn.disabled = true;
 
+      const formData = new FormData(contactForm);
+      const dataObj = Object.fromEntries(formData.entries());
+
       fetch('https://formsubmit.co/ajax/comercial@infinitum.uy', {
         method: 'POST',
-        body: new FormData(contactForm)
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(dataObj)
       })
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) throw new Error('Error en el servidor');
+        return response.json();
+      })
       .then(data => {
         const successMsg = document.getElementById('form-success');
         if (successMsg) {
