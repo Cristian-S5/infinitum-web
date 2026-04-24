@@ -126,12 +126,33 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const successMsg = document.getElementById('form-success');
-      if (successMsg) {
-        successMsg.classList.add('show');
-        e.target.reset();
-        setTimeout(() => successMsg.classList.remove('show'), 5000);
-      }
+      
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.innerHTML;
+      submitBtn.innerHTML = 'Enviando...';
+      submitBtn.disabled = true;
+
+      fetch('https://formsubmit.co/ajax/comercial@infinitum.uy', {
+        method: 'POST',
+        body: new FormData(contactForm)
+      })
+      .then(response => response.json())
+      .then(data => {
+        const successMsg = document.getElementById('form-success');
+        if (successMsg) {
+          successMsg.classList.add('show');
+          contactForm.reset();
+          setTimeout(() => successMsg.classList.remove('show'), 5000);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Hubo un error al enviar el mensaje. Intenta nuevamente.');
+      })
+      .finally(() => {
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+      });
     });
   }
 
@@ -201,28 +222,28 @@ document.addEventListener('DOMContentLoaded', () => {
         body: `
           <p>La inteligencia artificial está revolucionando la industria inmobiliaria en formas que parecían ciencia ficción hace apenas unos años. Desde la valoración automática de propiedades hasta los chatbots de atención al cliente 24/7, las herramientas de IA se han convertido en aliados indispensables para desarrolladores y agentes.</p>
           <p>Los algoritmos de machine learning ahora pueden predecir tendencias de mercado con una precisión sin precedentes, analizando miles de variables simultáneamente: ubicación, conectividad, proyectos de infraestructura pública, demografía y hasta el sentimiento en redes sociales.</p>
-          <p>Además, la generación de renders fotorrealistas mediante IA permite visualizar proyectos en etapas tempranas de desarrollo, acelerando la comercialización y reduciendo costos de marketing. Estas imágenes, que antes requerían semanas de trabajo de diseñadores especializados, ahora se producen en cuestión de horas.</p>
+          <p>Además, la generación de renders fotorrealistas mediante IA permite visualizar proyectos en etapas tempranas de desarrollo, acelerando la comercialización. Estas imágenes, que antes requerían mucho más tiempo de produccion, ahora se producen en cuestión de horas.</p>
           <p>Las plataformas de CRM inteligentes aprenden del comportamiento de los clientes potenciales, identificando los leads con mayor probabilidad de conversión y sugiriendo el momento óptimo para contactarlos. Este enfoque data-driven está transformando los equipos de ventas tradicionales en verdaderas máquinas de eficiencia.</p>
         `
       },
       2: {
         tag: 'Marketing',
-        title: 'Estrategias de Branding para Desarrolladoras',
+        title: 'Estrategias de Branding de Alto Impacto',
         body: `
-          <p>En un mercado inmobiliario cada vez más competitivo, la diferenciación ya no pasa solo por la calidad constructiva o la ubicación. El branding se ha convertido en el factor decisivo que inclina la balanza a favor de una desarrolladora sobre otra.</p>
-          <p>Una marca sólida en el sector inmobiliario transmite confianza, profesionalismo y visión de futuro. Los compradores de hoy investigan exhaustivamente antes de invertir, y la presencia digital de una desarrolladora es, muchas veces, el primer punto de contacto con el cliente.</p>
-          <p>El storytelling inmobiliario permite conectar emocionalmente con los compradores potenciales. No se trata solo de vender metros cuadrados, sino de vender un estilo de vida, una comunidad, un futuro. Las campañas más exitosas cuentan historias que resuenan con las aspiraciones de su público objetivo.</p>
-          <p>La consistencia visual a través de todos los canales —sitio web, redes sociales, folletería, señalética en obra— refuerza el reconocimiento de marca y genera una percepción de solidez. Cada pieza de comunicación debe ser un embajador de los valores de la empresa.</p>
+          <p>En el panorama digital actual, el branding ha evolucionado de ser una simple identidad visual a convertirse en la promesa de valor que una empresa hace a sus clientes. Ya no basta con tener un logo atractivo; es necesario construir un ecosistema de marca coherente y emocional.</p>
+          <p>El primer paso para un branding de alto impacto es definir el propósito. Las marcas que comunican el "por qué" de su existencia, antes que el "qué" venden, logran una lealtad mucho más profunda. Este propósito debe permear cada punto de contacto, desde la atención al cliente hasta el diseño de la interfaz de usuario.</p>
+          <p>La consistencia es el segundo pilar. En un mundo omnicanal, tu marca debe sentirse igual en Instagram, en tu sitio web y en un correo electrónico. Esta familiaridad genera confianza, y la confianza es la moneda más valiosa en los negocios modernos.</p>
+          <p>Finalmente, el branding moderno es conversacional. Las marcas ya no hablan "a" su audiencia, sino "con" ella. Escuchar el feedback y adaptar la narrativa en tiempo real es lo que diferencia a las empresas líderes de las seguidoras.</p>
         `
       },
       3: {
         tag: 'Digital',
-        title: 'SEO Inmobiliario: Guía para Principiantes',
+        title: 'El Futuro del SEO: Más allá de Google',
         body: `
-          <p>El posicionamiento en buscadores es una de las herramientas más poderosas para atraer tráfico calificado al sitio web de tu emprendimiento. Sin embargo, el SEO inmobiliario tiene particularidades que lo distinguen de otras industrias.</p>
-          <p>Las búsquedas locales son fundamentales. Frases como "departamentos en [barrio]" o "casas en venta en [ciudad]" son las consultas más frecuentes. Optimizar tu contenido para estas keywords de cola larga puede posicionarte por encima de portales genéricos con presupuestos millonarios.</p>
-          <p>El contenido de calidad sigue siendo el rey. Guías de barrios, análisis de mercado, consejos para compradores primerizos —este tipo de contenido no solo atrae visitantes, sino que establece tu autoridad en el sector y genera confianza con potenciales clientes.</p>
-          <p>Los aspectos técnicos no pueden descuidarse: velocidad de carga, diseño responsive, datos estructurados para propiedades y una arquitectura de sitio clara son la base sobre la que se construye cualquier estrategia SEO exitosa en el rubro inmobiliario.</p>
+          <p>El SEO ya no es lo que era hace dos años. Con la llegada de la Search Generative Experience (SGE) y los motores de respuesta basados en IA, la forma en que los usuarios consumen información ha cambiado drásticamente. El objetivo ya no es solo aparecer en los resultados, sino ser la fuente de la cual la IA extrae sus respuestas.</p>
+          <p>La optimización ahora se centra en la autoridad y la experiencia (E-E-A-T). Google y otros buscadores priorizan el contenido que demuestra conocimiento real y humano sobre temas específicos. Ya no se trata de repetir palabras clave, sino de responder preguntas complejas de manera exhaustiva.</p>
+          <p>Las búsquedas por voz y las consultas en lenguaje natural son cada vez más frecuentes. Esto significa que nuestra estrategia de contenidos debe ser más conversacional y directa. Estructurar la información mediante datos enriquecidos (schema markup) es ahora más crítico que nunca para ayudar a los algoritmos a entender el contexto de nuestro sitio.</p>
+          <p>El SEO técnico también evoluciona. La velocidad de carga y la accesibilidad siguen siendo pilares, pero la capacidad de un sitio para ser "leído" por agentes de IA se está convirtiendo en un nuevo estándar de optimización.</p>
         `
       },
       4: {
@@ -236,53 +257,52 @@ document.addEventListener('DOMContentLoaded', () => {
         `
       },
       5: {
-        tag: 'Cultura',
-        title: 'Arquitectura Sostenible: Un Nuevo Estándar',
+        tag: 'Desarrollo',
+        title: 'UX: El Corazón del Desarrollo Web Moderno',
         body: `
-          <p>La sostenibilidad dejó de ser una tendencia para convertirse en una exigencia del mercado inmobiliario moderno. Los compradores de hoy no solo buscan un espacio habitable; buscan un compromiso con el medio ambiente y la eficiencia energética.</p>
-          <p>Las certificaciones verdes como LEED, EDGE y BREEAM se han convertido en diferenciales competitivos reales. Los edificios certificados no solo reducen el impacto ambiental, sino que también ofrecen menores costos operativos para sus propietarios, lo que se traduce en mayor valor de reventa.</p>
-          <p>El diseño bioclimático, que aprovecha la orientación solar, la ventilación natural y los materiales de bajo impacto, está ganando terreno en Uruguay. Desarrolladoras visionarias están incorporando techos verdes, paneles solares y sistemas de reciclaje de agua pluvial en sus proyectos.</p>
-          <p>El futuro del real estate es verde, y las empresas que adopten este paradigma tempranamente serán las que lideren el mercado en la próxima década. No se trata solo de responsabilidad ambiental, sino de inteligencia comercial.</p>
+          <p>El desarrollo web moderno ha dejado de ser una cuestión puramente técnica para convertirse en una disciplina centrada en el ser humano. Un sitio web exitoso no es aquel que tiene las últimas tecnologías, sino aquel que resuelve los problemas del usuario de la manera más fluida posible.</p>
+          <p>La Experiencia de Usuario (UX) comienza mucho antes de escribir la primera línea de código. Se trata de entender el viaje del cliente, sus frustraciones y sus objetivos. Un diseño intuitivo reduce la carga cognitiva, permitiendo que el usuario encuentre lo que busca sin esfuerzo.</p>
+          <p>El rendimiento es una parte intrínseca de la UX. Un sitio que tarda más de tres segundos en cargar pierde al 50% de sus visitantes. La optimización de recursos, el uso de frameworks eficientes y una arquitectura limpia son fundamentales para mantener el interés del usuario.</p>
+          <p>Finalmente, la accesibilidad ya no es opcional. Diseñar para todos, incluyendo personas con diferentes capacidades, no solo es una responsabilidad ética, sino que también mejora el SEO y amplía el alcance de tu negocio a una audiencia global.</p>
         `
       },
       6: {
-        tag: 'Redes',
-        title: 'Maximizando Instagram para tu Inmobiliaria',
+        tag: 'Marketing',
+        title: 'Contenidos: El Toque Humano frente a la IA',
         body: `
-          <p>Instagram se ha consolidado como la plataforma visual por excelencia para el marketing inmobiliario. Con más de mil millones de usuarios activos, ofrece una vitrina inigualable para mostrar propiedades y construir una marca reconocible en el sector.</p>
-          <p>El contenido visual de alta calidad es innegociable. Fotografías profesionales, videos de recorridos virtuales y reels dinámicos son los formatos que mayor engagement generan. Las stories permiten mostrar el día a día de la empresa, humanizando la marca y generando cercanía con la audiencia.</p>
-          <p>Los hashtags estratégicos y la geolocalización precisa multiplican el alcance de tus publicaciones. Combinar hashtags de nicho (#InmobiliariaUruguay, #DepartamentosEnPozo) con hashtags de mayor volumen maximiza la visibilidad ante audiencias relevantes.</p>
-          <p>La interacción genuina con la comunidad es clave. Responder comentarios, participar en conversaciones del sector y colaborar con influencers locales construye una presencia orgánica que ninguna inversión publicitaria puede replicar completamente.</p>
+          <p>La IA es un excelente copiloto para la creación de contenidos, pero la chispa de la creatividad sigue siendo humana. Las opiniones personales, la narrativa única y la empatía son las que realmente generan engagement.</p>
+          <p>Utilizar la IA para el análisis de datos y la estructuración nos permite enfocarnos en el valor agregado: la historia detrás del dato. La curación de contenidos se vuelve el activo más importante para posicionar una marca como líder de pensamiento.</p>
+          <p>El éxito hoy no reside en la cantidad, sino en la profundidad y relevancia. Un contenido de alta calidad multiplataforma es capaz de conectar con la audiencia en múltiples niveles si se mantiene la autenticidad como pilar fundamental.</p>
         `
       },
       7: {
-        tag: 'Tecnología',
-        title: 'Tour Virtual vs. Realidad Aumentada',
+        tag: 'IA',
+        title: 'Automatización: Multiplicando la Productividad',
         body: `
-          <p>Las tecnologías inmersivas han transformado la manera en que los compradores experimentan las propiedades antes de visitarlas físicamente. Pero ¿cuál es la mejor opción para tu emprendimiento: el tour virtual 360° o la realidad aumentada?</p>
-          <p>Los tours virtuales permiten recorrer un espacio ya terminado o un render 3D desde cualquier dispositivo. Son ideales para propiedades existentes y para compradores remotos. Su principal ventaja es la accesibilidad: no requieren hardware especial y pueden integrarse fácilmente en sitios web y portales inmobiliarios.</p>
-          <p>La realidad aumentada, por otro lado, superpone elementos digitales sobre el mundo real. Permite a los compradores "ver" cómo quedaría un mueble en el salón o visualizar un edificio en un terreno vacío. Es una herramienta poderosa para emprendimientos en etapa de pozo.</p>
-          <p>La elección depende del contexto: para propiedades terminadas, el tour virtual ofrece una experiencia inmersiva completa. Para proyectos en desarrollo, la realidad aumentada brinda la posibilidad de tangibilizar algo que aún no existe, generando confianza y entusiasmo en el comprador.</p>
+          <p>La automatización de procesos ya no es exclusiva de las grandes corporaciones. Hoy en día, cualquier negocio puede implementar flujos de trabajo inteligentes que ahorren cientos de horas al año en tareas repetitivas y administrativas.</p>
+          <p>Desde la calificación automática de leads hasta la sincronización de datos entre diferentes plataformas, las herramientas de automatización permiten que los equipos se enfoquen en tareas de alto valor. Un funnel de ventas automatizado, por ejemplo, puede nutrir a un cliente potencial desde el primer contacto hasta el cierre sin intervención humana constante.</p>
+          <p>La integración de IA en estos flujos añade una capa de inteligencia. Ya no se trata solo de mover datos de un lugar a otro, sino de tomar decisiones basadas en esos datos. Clasificar correos electrónicos por sentimiento o sugerir respuestas automáticas personalizadas son ejemplos de cómo la IA potencia la productividad.</p>
+          <p>Implementar automatizaciones requiere una mentalidad de mejora continua. Identificar los cuellos de botella en la operación diaria es el primer paso para construir una infraestructura digital escalable y eficiente.</p>
         `
       },
       8: {
-        tag: 'Ventas',
-        title: 'Cierre de Ventas: Claves para el Éxito',
+        tag: 'Estrategia',
+        title: 'CRO: El Arte de Vender Más sin Gastar Más',
         body: `
-          <p>El cierre de una venta inmobiliaria es el resultado de un proceso cuidadosamente cultivado. No se trata de técnicas agresivas de presión, sino de generar la confianza suficiente para que el comprador tome una decisión informada y se sienta seguro con su inversión.</p>
-          <p>La escucha activa es la habilidad más subestimada en el proceso de ventas. Entender las necesidades reales del cliente —no las que asumimos— permite presentar la propiedad adecuada en el momento adecuado. Un vendedor que escucha más de lo que habla cierra más operaciones.</p>
-          <p>El manejo de objeciones requiere preparación y empatía. Las objeciones de precio, ubicación o timing no son rechazos; son oportunidades para profundizar en la conversación y aportar valor. Datos de mercado, comparativas y proyecciones de revalorización son herramientas poderosas en estas instancias.</p>
-          <p>El seguimiento post-visita es crítico. Un sistema de follow-up automatizado pero personalizado mantiene el interés del comprador sin resultar invasivo. El timing de cada contacto debe ser estratégico, aportando información relevante que acerque al cliente hacia la decisión final.</p>
+          <p>Muchos negocios cometen el error de centrarse únicamente en atraer tráfico, olvidando que el tráfico sin conversión es solo una métrica de vanidad. El Conversion Rate Optimization (CRO) es la disciplina que se encarga de que ese flujo de visitantes se transforme en resultados reales.</p>
+          <p>El CRO se basa en el método científico: analizar datos, formular hipótesis, realizar tests A/B y medir resultados. Pequeños cambios en el color de un botón, la redacción de un titular o la disposición de un formulario pueden generar incrementos significativos en la tasa de conversión.</p>
+          <p>Entender la psicología del consumidor es clave. Elementos como la prueba social, la escasez y la urgencia, cuando se usan de manera ética, guían al usuario hacia la acción deseada. Una página de aterrizaje optimizada debe eliminar cualquier fricción que impida al cliente completar su compra o registro.</p>
+          <p>La optimización de la conversión es un proceso interminable. El comportamiento del usuario cambia, y lo que funcionaba ayer puede no funcionar mañana. Mantener un ciclo constante de análisis y mejora es lo que garantiza un crecimiento sostenible a largo plazo.</p>
         `
       },
       9: {
-        tag: 'Agentes',
-        title: 'Automatizaciones IA para Agentes de Venta',
+        tag: 'IA',
+        title: 'Chatbots Inteligentes: Revolucionando la Atención al Cliente',
         body: `
-          <p>Los agentes de venta inmobiliarios dedican, en promedio, más del 60% de su tiempo a tareas administrativas y repetitivas. La automatización mediante inteligencia artificial permite liberar ese tiempo para lo que realmente importa: la relación con el cliente.</p>
-          <p>Los chatbots inteligentes pueden atender consultas iniciales las 24 horas, filtrar leads por nivel de interés y agendar visitas automáticamente. Esto no reemplaza al agente humano, sino que lo potencia al entregarle leads precalificados y listos para una conversación de valor.</p>
-          <p>Los sistemas de CRM con IA aprenden de los patrones de comportamiento de los clientes y sugieren las acciones con mayor probabilidad de éxito. Desde el mejor momento para enviar un email hasta el tipo de propiedad que podría interesarle a un lead específico.</p>
-          <p>La generación automática de contenido para redes sociales, newsletters y fichas de propiedades permite mantener una presencia digital constante sin demandar horas de trabajo creativo. El agente del futuro combina la calidez humana con la eficiencia de la tecnología.</p>
+          <p>La atención al cliente ha dejado de ser un centro de costos para convertirse en una ventaja competitiva gracias a la IA conversacional. Los chatbots inteligentes ya no son esos sistemas rígidos de opciones limitadas; hoy son capaces de entender el lenguaje natural y resolver consultas complejas de manera instantánea.</p>
+          <p>La principal ventaja es la disponibilidad. Un asistente de IA puede atender a miles de usuarios simultáneamente, las 24 horas del día, los 365 días del año. Esto no solo mejora la satisfacción del cliente, sino que también libera al equipo humano para resolver casos que requieren empatía y juicio crítico.</p>
+          <p>La personalización es el siguiente nivel. Estos sistemas pueden integrarse con tu CRM para reconocer al usuario, conocer su historial de compras y ofrecer recomendaciones a medida en tiempo real. La conversación se siente fluida y relevante, aumentando significativamente las probabilidades de conversión.</p>
+          <p>Implementar un chatbot inteligente es ahora más accesible que nunca. Con el entrenamiento adecuado sobre la base de conocimientos de tu empresa, esta herramienta se convierte en el embajador de marca más eficiente y escalable de tu ecosistema digital.</p>
         `
       }
     };
@@ -308,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Set body content with image placeholder, text and a close button
       modalBody.innerHTML = `
-        <div class="modal-article-placeholder"></div>
+        <div class="modal-article-placeholder" style="background-image: url('assets/blog_${postId}.svg'); background-size: cover; background-position: center;"></div>
         <div class="modal-article-text">${post.body}</div>
         <div class="modal-footer">
           <button class="btn btn-primary" id="modal-close-footer" style="margin-top: 30px;">Cerrar Artículo</button>
