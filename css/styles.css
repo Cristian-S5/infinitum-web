@@ -286,9 +286,10 @@ a { color: inherit; text-decoration: none; }
 }
 .section-title span {
   background: linear-gradient(90deg, var(--clr-gold-lt), var(--clr-teal));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background-size: 100% 35%;
+  background-position: 0 88%;
+  background-repeat: no-repeat;
+  color: inherit;
 }
 
 .section-desc {
