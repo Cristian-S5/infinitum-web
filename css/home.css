@@ -464,6 +464,11 @@
   gap: 12px;
   font-size: 0.92rem;
   color: var(--clr-muted);
+  transition: color var(--transition), transform var(--transition);
+}
+.ci-item:hover {
+  color: var(--clr-gold-lt);
+  transform: translateX(4px);
 }
 .ci-item svg { stroke: var(--clr-gold); flex-shrink: 0; }
 
