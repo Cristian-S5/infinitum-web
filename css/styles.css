@@ -15,8 +15,8 @@
   --clr-surface2:  #1a2235;
   --clr-gold:      #7acbea;
   --clr-gold-lt:   #a9deff;
-  --clr-teal:      #3ec699;
-  --clr-teal-dk:   #2da37c;
+  --clr-teal:      #BD90D3;
+  --clr-teal-dk:   #a674bd;
   --clr-text:      #f3f4f6;
   --clr-muted:     #a1acc3;
   --clr-border:    rgba(122, 203, 234, 0.22);
@@ -313,7 +313,7 @@ a { color: inherit; text-decoration: none; }
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(122, 203, 234, 0.05), rgba(62, 198, 153, 0.03));
+  background: linear-gradient(135deg, rgba(122, 203, 234, 0.05), rgba(189, 144, 211, 0.03));
   opacity: 0;
   transition: opacity var(--transition);
 }

@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ============================================= */
   const particlesContainer = document.getElementById('particles');
   if (particlesContainer) {
-    const colors = ['rgba(122, 203, 234,', 'rgba(62, 198, 153,', 'rgba(169, 222, 255,'];
+    const colors = ['rgba(122, 203, 234,', 'rgba(189, 144, 211,', 'rgba(169, 222, 255,'];
     const total  = 30;
 
     for (let i = 0; i < total; i++) {

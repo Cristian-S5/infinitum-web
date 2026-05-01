@@ -13,7 +13,7 @@
   inset: 0;
   background:
     radial-gradient(ellipse 70% 60% at 30% 50%, rgba(122, 203, 234, 0.07) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 80% 30%, rgba(62, 198, 153, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 60% at 80% 30%, rgba(189, 144, 211, 0.06) 0%, transparent 60%),
     linear-gradient(180deg, #07090f 0%, #0d1120 100%);
   z-index: 0;
 }
@@ -90,7 +90,7 @@
 .post-image-placeholder {
   width: 100%;
   aspect-ratio: 16/9;
-  background: linear-gradient(135deg, rgba(122, 203, 234, 0.05), rgba(62, 198, 153, 0.05));
+  background: linear-gradient(135deg, rgba(122, 203, 234, 0.05), rgba(189, 144, 211, 0.05));
   position: relative;
   overflow: hidden;
   border-bottom: 1px solid var(--clr-border);
@@ -289,7 +289,7 @@
 .modal-article-placeholder {
   width: 100%;
   aspect-ratio: 16/7;
-  background: linear-gradient(135deg, rgba(122, 203, 234, 0.1), rgba(62, 198, 153, 0.1));
+  background: linear-gradient(135deg, rgba(122, 203, 234, 0.1), rgba(189, 144, 211, 0.1));
   border-radius: 12px;
   margin-bottom: 32px;
 }
