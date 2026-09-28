@@ -314,7 +314,7 @@
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--icon-clr, var(--clr-gold)), transparent);
+  background: linear-gradient(90deg, var(--clr-gold), var(--clr-teal), transparent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--transition);
@@ -367,7 +367,7 @@
 .why-card h3 {
   font-size: 1.05rem;
   font-weight: 700;
-  margin: 14px 0 10px;
+  margin: 0 0 10px;
   color: var(--clr-text);
 }
 .why-card p {

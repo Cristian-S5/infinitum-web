@@ -90,10 +90,7 @@
 .service-section { scroll-margin-top: 90px; }
 
 .service-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 .service-header .section-label,
 .pro-header .section-label {
