@@ -45,12 +45,12 @@
   color: var(--clr-text);
   margin-bottom: 20px;
 }
-.page-hero-title em {
-  font-style: italic;
-  background: linear-gradient(90deg, var(--clr-gold-lt), var(--clr-teal));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.page-hero-title em,
+.page-hero-title span {
+  font-style: normal;
+  color: inherit;
+  background: none;
+  -webkit-text-fill-color: inherit;
 }
 
 .page-hero-desc {

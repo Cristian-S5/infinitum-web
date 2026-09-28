@@ -284,11 +284,12 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: -0.02em;
   color: var(--clr-text);
 }
-.section-title span {
-  background: linear-gradient(90deg, var(--clr-gold-lt), var(--clr-teal));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+.section-title span,
+.section-title em {
+  font-style: normal;
+  color: inherit;
+  background: none;
+  -webkit-text-fill-color: inherit;
 }
 
 .section-desc {
