@@ -117,7 +117,11 @@
   flex-shrink: 0;
   margin-top: 8px;
 }
-.service-category-icon svg { stroke: var(--scat); }
+.service-category-icon svg {
+  stroke: #ffffff;
+  fill: #ffffff;
+  color: #ffffff;
+}
 
 /* ===== SERVICE CARDS ===== */
 .service-cards-grid {
@@ -139,7 +143,11 @@
   display: grid; place-items: center;
   margin-bottom: 18px;
 }
-.sc-icon-wrap svg { stroke: var(--sc-clr); }
+.sc-icon-wrap svg {
+  stroke: #ffffff;
+  fill: #ffffff;
+  color: #ffffff;
+}
 
 .service-card h3 {
   font-size: 1.1rem;
@@ -541,7 +549,12 @@
   border-radius: 16px;
   display: grid; place-items: center;
   margin: 0 auto 20px;
-  color: var(--p-clr);
+  color: #ffffff;
+}
+.pro-icon svg {
+  stroke: #ffffff;
+  fill: #ffffff;
+  color: #ffffff;
 }
 .pro-item h3 {
   font-size: 1.15rem;
@@ -566,6 +579,7 @@
   padding: 18px 48px;
   font-size: 1.05rem;
   background: linear-gradient(135deg, var(--clr-gold), var(--clr-teal));
+  box-shadow: none;
 }
 
 @media (max-width: 900px) {

@@ -68,20 +68,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* =============================================
-     REVEAL ON SCROLL
+     REVEAL ON SCROLL (Disabled for instant load)
   ============================================= */
   const reveals = document.querySelectorAll('.reveal');
-
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-  reveals.forEach(el => revealObserver.observe(el));
+  reveals.forEach(el => el.classList.add('visible'));
 
 
 

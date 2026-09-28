@@ -333,7 +333,11 @@
   background: color-mix(in srgb, var(--icon-clr) 12%, transparent);
   border: 1px solid color-mix(in srgb, var(--icon-clr) 25%, transparent);
 }
-.sp-icon svg { stroke: var(--icon-clr, var(--clr-gold)); }
+.sp-icon svg {
+  stroke: #ffffff;
+  fill: #ffffff;
+  color: #ffffff;
+}
 
 .service-preview-card h3 {
   font-size: 1.05rem;
@@ -347,14 +351,7 @@
   flex: 1;
 }
 .sp-arrow {
-  font-size: 1.1rem;
-  color: var(--clr-gold-lt);
-  transition: transform var(--transition);
-  opacity: 0;
-}
-.service-preview-card:hover .sp-arrow {
-  opacity: 1;
-  transform: translateX(4px);
+  display: none;
 }
 
 /* ===== WHY US ===== */
@@ -684,13 +681,10 @@
 
 .process-line-fill {
   height: 100%;
-  width: 0;
+  width: 100%;
   background: linear-gradient(90deg, var(--clr-gold) 0%, var(--clr-teal) 100%);
   box-shadow: 0 0 10px var(--clr-gold);
-  transition: width 1.5s ease;
 }
-
-.reveal.visible .process-line-fill { width: 100%; }
 
 .process-container-box {
   background: var(--clr-surface);
